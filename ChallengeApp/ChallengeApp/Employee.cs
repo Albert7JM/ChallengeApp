@@ -26,5 +26,6 @@ namespace ChallengeApp
         {
             score.Add(number);
         }
+
     }
 }
