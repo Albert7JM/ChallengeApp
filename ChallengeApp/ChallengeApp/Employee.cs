@@ -16,9 +16,38 @@ namespace ChallengeApp
 
         public string Surname { get; private set; }
 
+
         public void AddGrade(float grade)
         {
-            this.grades.Add(grade);
+            if (grade >= 0 && grade <= 100)
+            {
+                this.grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine($"Wrong grade value. {grade} is out of range");
+            }
+        }
+
+        public void AddGrade(string grade)
+        {
+            if (float.TryParse(grade, out float reuslt))
+            {
+                this.AddGrade(reuslt);
+            }
+            else
+            {
+                Console.WriteLine($"Grade {grade} is not a float");
+            }
+        }
+
+        public void AddGrade(double grade)
+        {
+            this.AddGrade((float)grade);
+        }
+        public void AddGrade(long grade)
+        {
+            this.AddGrade((float)grade);
         }
 
         public Statistics GetStatistics()
