@@ -1,48 +1,26 @@
-namespace ChallengeApp.Tests
+namespace ChallengeApp.Test
 {
-    public class EmployeeTests
+    internal class EmployeeTests
     {
         [Test]
-        public void WhenEmployeeCollectAllPoints_ShouldReturnMaxValue()
+        public void CorrectPoints()
         {
-            //arange
             var employee = new Employee("Adam", "Chmielowski");
-            employee.AddGrade(7);
-            employee.AddGrade(3);
-            employee.AddGrade(5);
-            employee.AddGrade(10);
-            //act
+            employee.AddGrade(77);
+            employee.AddGrade('b');
+            employee.AddGrade(33);
+            employee.AddGrade(59);
+            employee.AddGrade('c');
+            employee.AddGrade(49);
+
             var statistics = employee.GetStatistics();
-           //assert
-            Assert.AreEqual(10,statistics.Max);
+
+            Assert.AreEqual(statistics.Min, 33,00);
+            Assert.AreEqual(statistics.Max, 80,00);
+            Assert.AreEqual(statistics.Average, 59,67);
+            Assert.AreEqual(statistics.AverageLetter, 'C');
+
         }
-        [Test]
-        public void WhenEmployeeCollectAllPoints_ShouldReturnMinValue()
-        {
-            //arange
-            var employee = new Employee("Adam", "Chmielowski");
-            employee.AddGrade(7);
-            employee.AddGrade(3);
-            employee.AddGrade(5);
-            employee.AddGrade(10);
-            //act
-            var statistics = employee.GetStatistics();
-            //assert
-            Assert.AreEqual(3, statistics.Min);
-        }
-        [Test]
-        public void WhenEmployeeCollectAllPoints_ShouldReturnAverageValue()
-        {
-            //arange
-            var employee = new Employee("Adam", "Chmielowski");
-            employee.AddGrade(7);
-            employee.AddGrade(3);
-            employee.AddGrade(5);
-            employee.AddGrade(10);
-            //act
-            var statistics = employee.GetStatistics();
-            //assert
-            Assert.AreEqual(6.25, statistics.Average);
-        }
+
     }
 }

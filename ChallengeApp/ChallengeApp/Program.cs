@@ -1,43 +1,34 @@
 ﻿using ChallengeApp;
 
-var employee = new Employee("Adam", "Chmielowski");
-employee.AddGrade(7);
-employee.AddGrade(3);
-employee.AddGrade("Adam");
-employee.AddGrade(5);
-employee.AddGrade(10);
-employee.AddGrade(101);
-employee.AddGrade("Bobolówka");
+Console.WriteLine("Witaj w aplickacji do oceny pracowników.");
+Console.WriteLine("By zakończyć działanie aplikacji wprowadź \"q\"");
+Console.WriteLine("==========================");
+Console.WriteLine();
+
+var employee = new Employee();
+
+while (true)
+{
+    Console.WriteLine("Podaj kolejną ocenę do wprowadzenia:");
+    var input = Console.ReadLine();
+    if (input.Equals("q"))
+    {
+        break;
+    }
+    employee.AddGrade(input);
+}
 
 var statistics = employee.GetStatistics();
-var statistics1 = employee.GetStatisticsWithFor();
-var statistics2 = employee.GetStatisticsWithForEach();
-var statistics3 = employee.GetStatisticsWithWhile();
-var statistics4 = employee.GetStatisticsWithDoWhile();
+printStatistics(statistics);
 
-Console.WriteLine($"\nAverage: {statistics.Average:N2}");
-Console.WriteLine($"Min: {statistics.Min}");
-Console.WriteLine($"Max: {statistics.Max}");
-
-Console.WriteLine($"\nWyniki dla pętli for");
-Console.WriteLine($"Average: {statistics1.Average:N2}");
-Console.WriteLine($"Min: {statistics1.Min}");
-Console.WriteLine($"Max: {statistics1.Max}");
-
-Console.WriteLine($"\nWyniki dla pętli foreach");
-Console.WriteLine($"Average: {statistics2.Average:N2}");
-Console.WriteLine($"Min: {statistics2.Min}");
-Console.WriteLine($"Max: {statistics2.Max}");
-
-Console.WriteLine($"\nWyniki dla pętli while");
-Console.WriteLine($"Average: {statistics3.Average:N2}");
-Console.WriteLine($"Min: {statistics3.Min}");
-Console.WriteLine($"Max: {statistics3.Max}");
-
-Console.WriteLine($"\nWyniki dla pętli do while");
-Console.WriteLine($"Average: {statistics4.Average:N2}");
-Console.WriteLine($"Min: {statistics4.Min}");
-Console.WriteLine($"Max: {statistics4.Max}");
+static void printStatistics(Statistics stats)
+{
+    Console.WriteLine("==========================");
+    Console.WriteLine($"Najniższa ocena to: {stats.Min:N2}");
+    Console.WriteLine($"Najwyższa ocena to: {stats.Max:N2}");
+    Console.WriteLine($"Średnia ocen to: {stats.Average:N2}");
+    Console.WriteLine($"Ocena pracownika to: {stats.AverageLetter:N2}");
+}
 
 
 
