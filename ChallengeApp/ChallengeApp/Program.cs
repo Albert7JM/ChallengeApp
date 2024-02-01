@@ -5,7 +5,7 @@ Console.WriteLine("By zakończyć działanie aplikacji wprowadź \"q\"");
 Console.WriteLine("==========================");
 Console.WriteLine();
 
-var employee = new Employee();
+var employee = new Employee("Adam", "Chmielowski");
 
 while (true)
 {
@@ -24,11 +24,10 @@ printStatistics(statistics);
 static void printStatistics(Statistics stats)
 {
     Console.WriteLine("==========================");
-    Console.WriteLine($"Najniższa ocena to: {stats.Min:N2}");
-    Console.WriteLine($"Najwyższa ocena to: {stats.Max:N2}");
+    Console.WriteLine($"Najniższa ocena to: {stats.Min}");
+    Console.WriteLine($"Najwyższa ocena to: {stats.Max}");
     Console.WriteLine($"Średnia ocen to: {stats.Average:N2}");
-    Console.WriteLine($"Ocena pracownika to: {stats.AverageLetter:N2}");
+    Console.WriteLine($"Ocena pracownika to: {stats.AverageLetter}");
 }
-
 
 
